@@ -5,7 +5,7 @@ REQUIREMENTS
 USAGE
 
 - download file from release page
-- `java -Dmicronaut.server.port=8080 -jar build/libs/accountingtest-1.0.0-all.jar`
+- `java -Dmicronaut.server.port=8080 -jar accountingtest-1.0.0-all.jar`
 - `curl -XPOST http://localhost:8080/create`
 - `curl -XPOST http://localhost:8080/create`
 - `curl -XPOST http://localhost:8080/adjustment -H 'Content-Type: application/json' -d '{"accountId": 1, "amount": 1, "description": "abc"}'`
@@ -32,11 +32,10 @@ SIMPLIFICATIONS
 - Currency is omitted 
 - Account balance should be non-negative (no overdrafts, etc)
 - Account balance value could be adjusted. This is emulation of transfer from external system
-- Single timezone supported
-- Both account creation and transfer are not idemponent. External identifiers could be introduced for accounts and balance changes
+- Timezones are not supported
+- Both account creation and transfer are not idemponent. External identifiers could be introduced for real system
 - No filtering supported for balance change history
 - Balance addition is always successful. In future if it could be rejected we may implement Saga pattern
 - Scale and rounding issues for account balance are omitted
-- Logging is 
 - Api error messages are not very consistent
 
